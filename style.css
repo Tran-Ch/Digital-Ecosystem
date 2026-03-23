@@ -1,209 +1,78 @@
 :root {
-    --primary: #4CAF50;
-    --danger: #ff5252;
-    --bg: #0a0a0a;
-    --panel-bg: rgba(20, 20, 20, 0.85);
+    --primary: #00ff88;
+    --danger: #ff0055;
+    --bg-dark: #050510;
+    --panel-bg: rgba(10, 10, 25, 0.8);
 }
 
 body {
     margin: 0; overflow: hidden;
-    background-color: var(--bg);
-    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-dark);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     color: white; user-select: none;
 }
 
-/* Loader Styles */
+/* Loader */
 #loader {
-    position: fixed; inset: 0; background: var(--bg);
+    position: fixed; inset: 0; background: var(--bg-dark);
     display: flex; justify-content: center; align-items: center; z-index: 9999;
 }
 .spinner {
-    width: 40px; height: 40px; border: 3px solid rgba(76, 175, 80, 0.1);
+    width: 40px; height: 40px; border: 3px solid rgba(0, 255, 136, 0.1);
     border-top: 3px solid var(--primary); border-radius: 50%;
-    margin: 0 auto 15px; animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* UI Panel */
 #ui-panel {
     position: absolute; top: 20px; left: 20px;
-    width: 250px; padding: 20px; border-radius: 15px;
-    background: var(--panel-bg); backdrop-filter: blur(10px);
+    width: 240px; padding: 20px; border-radius: 15px;
+    background: var(--panel-bg); backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1); z-index: 100;
 }
 
-h1 { font-size: 1.1rem; color: var(--primary); margin: 0 0 15px 0; text-align: center; }
-.stat-group { margin-bottom: 15px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; }
-.stat { display: flex; justify-content: space-between; font-size: 0.85rem; margin: 4px 0; }
+h1 { font-size: 1.1rem; color: var(--primary); text-shadow: 0 0 10px var(--primary); margin: 0 0 15px 0; text-align: center; }
+.stat-group { margin-bottom: 15px; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+.stat { display: flex; justify-content: space-between; font-size: 0.8rem; margin: 4px 0; }
 
-.control-group { margin-bottom: 15px; }
-label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 8px; }
+.control-group { margin-bottom: 12px; }
+label { display: block; font-size: 0.7rem; color: #888; margin-bottom: 6px; text-transform: uppercase; }
 
 .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .btn-tool, .btn-event {
-    padding: 8px; background: #222; border: 1px solid #444;
-    color: #ccc; cursor: pointer; border-radius: 6px; font-size: 0.7rem; transition: 0.3s;
+    padding: 10px 5px; background: #1a1a2e; border: 1px solid #333;
+    color: #ccc; cursor: pointer; border-radius: 8px; font-size: 0.7rem; transition: 0.3s;
 }
-.btn-tool.active, .btn-event.active { background: var(--primary); color: white; border-color: var(--primary); }
-#btn-storm.active { background: #00bcd4; }
-#btn-night.active { background: #673ab7; }
+.btn-tool.active { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 10px var(--primary); }
+#btn-storm.active { background: #00bcd4; color: white; box-shadow: 0 0 10px #00bcd4; }
+#btn-night.active { background: #673ab7; color: white; box-shadow: 0 0 10px #673ab7; }
 
-input[type="range"] { width: 100%; accent-color: var(--primary); }
-.btn-help, .btn-reset { width: 100%; padding: 8px; margin-top: 8px; border-radius: 6px; cursor: pointer; font-weight: bold; border: 1px solid transparent; }
-.btn-help { background: #333; color: white; }
-.btn-reset { background: transparent; border-color: var(--danger); color: var(--danger); }
+.button-group { display: flex; gap: 8px; margin-top: 10px; }
+.btn-help, .btn-reset { flex: 1; padding: 10px; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); background: #222; color: #fff; font-size: 0.75rem; }
+.btn-reset { border-color: var(--danger); color: var(--danger); }
 .btn-reset:hover { background: var(--danger); color: white; }
 
-/* Night Mode Effect */
-.night-mode { filter: brightness(0.4) contrast(1.3) hue-rotate(20deg); transition: 2s; }
-
-/* Modal */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; backdrop-filter: blur(8px); }
+/* Modal Styles */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; backdrop-filter: blur(10px); }
 .modal-content { 
-    background: #151515; width: 350px; margin: 10% auto; padding: 25px; 
-    border-radius: 15px; border: 1px solid var(--primary); position: relative;
+    background: #0d0d1a; width: 420px; max-width: 90%; margin: 5% auto; padding: 30px; 
+    border-radius: 20px; border: 1px solid var(--primary); text-align: center;
 }
-.help-item { display: flex; align-items: center; gap: 15px; margin: 15px 0; font-size: 0.85rem; color: #bbb; }
-.btn-start { width: 100%; padding: 12px; background: var(--primary); border: none; color: white; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-/* Tinh chỉnh Modal Content */
-.modal-content {
-    background: #1a1a1a;
-    width: 450px;
-    max-width: 90%;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(76, 175, 80, 0.3);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    text-align: center;
-}
-
-.subtitle {
-    color: #888;
-    font-size: 0.9rem;
-    margin-bottom: 25px;
-}
-
-.help-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-/* Style cho từng thẻ Card */
-.help-card {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 15px;
-    border-radius: 12px;
-    text-align: left;
-    border-left: 4px solid var(--primary);
-    transition: transform 0.2s;
-}
-
-.help-card:hover {
-    transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.06);
-}
-
+.help-card { display: flex; align-items: center; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 12px; text-align: left; border-left: 4px solid var(--primary); }
 .help-card.danger { border-left-color: var(--danger); }
 .help-card.event { border-left-color: #00bcd4; }
+.card-icon { font-size: 1.5rem; margin-right: 15px; }
+.card-text h3 { margin: 0; font-size: 0.9rem; color: #fff; }
+.card-text p { margin: 0; font-size: 0.75rem; color: #aaa; }
+.btn-start { width: 100%; padding: 15px; background: var(--primary); border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px; }
 
-.card-icon {
-    font-size: 1.8rem;
-    margin-right: 20px;
-    min-width: 40px;
-    text-align: center;
-}
+/* Night Mode Effect */
+.night-mode { filter: brightness(0.4) contrast(1.2); transition: 2s; }
 
-.card-text h3 {
-    margin: 0 0 5px 0;
-    font-size: 1rem;
-    color: #eee;
-}
-
-.card-text p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: #aaa;
-    line-height: 1.4;
-}
-
-/* Nút bắt đầu lớn hơn */
-.btn-start {
-    background: var(--primary);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 15px;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-}
-
-.btn-start:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-}
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-
-/* Cho iPad và màn hình nhỏ hơn 768px */
-@media (max-width: 768px) {
-    #ui-panel {
-        width: 200px;
-        padding: 15px;
-        top: 10px;
-        left: 10px;
-    }
-    .modal-content {
-        width: 85%;
-        margin: 15% auto;
-        padding: 20px;
-    }
-}
-
-/* Cho điện thoại (màn hình nhỏ hơn 480px) */
+/* Mobile */
 @media (max-width: 480px) {
-    #ui-panel {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 20px 20px 0 0; /* Bo góc trên */
-        padding: 15px 20px 25px;
-        box-sizing: border-box;
-    }
-
-    h1 { font-size: 1rem; margin-bottom: 10px; }
-    
-    /* Ẩn bớt các thành phần phụ để tiết kiệm diện tích trên mobile */
-    .stat-group, .label-small { display: none; }
-    
-    .tool-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr; /* Dàn hàng ngang 4 nút */
-        gap: 5px;
-    }
-
-    .btn-tool, .btn-event {
-        padding: 12px 5px; /* Tăng diện tích bấm cho ngón tay */
-        font-size: 0.65rem;
-    }
-
-    .button-group {
-        display: flex;
-        gap: 10px;
-    }
-    
-    .btn-help, .btn-reset { margin-top: 10px; flex: 1; }
-
-    /* Căn chỉnh lại Modal trên Mobile */
-    .modal-content {
-        width: 90%;
-        margin: 5% auto;
-        padding: 15px;
-    }
-    .help-card { padding: 10px; gap: 10px; }
-    .card-icon { font-size: 1.2rem; margin-right: 10px; }
+    #ui-panel { top: auto; bottom: 0; left: 0; width: 100%; border-radius: 20px 20px 0 0; padding: 15px; }
+    .tool-grid { grid-template-columns: repeat(4, 1fr); }
+    .stat-group { display: none; }
 }

@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Écosystème Numérique Pro - Boids Simulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Écosystème Boids Pro - Neon Simulation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,12 +21,12 @@
             <h1>Écosystème Boids</h1>
             
             <div class="stat-group">
-                <div class="stat"><span>Score:</span> <span id="current-score" class="stat-val" style="color: #ffeb3b;">0</span></div>
-                <div class="stat"><span>Record:</span> <span id="high-score" class="stat-val" style="color: #ff9800;">0</span></div>
+                <div class="stat"><span>Score:</span> <span id="current-score" class="stat-val" style="color: #fffb00;">0</span></div>
+                <div class="stat"><span>Record:</span> <span id="high-score" class="stat-val" style="color: #00ffff;">0</span></div>
             </div>
 
             <div class="control-group">
-                <label>🛠️ Outils d'interaction :</label>
+                <label>🛠️ Interaction :</label>
                 <div class="tool-grid">
                     <button class="btn-tool active" id="tool-food">🍎 Pomme</button>
                     <button class="btn-tool" id="tool-wall">🧱 Mur</button>
@@ -42,14 +42,13 @@
             </div>
 
             <div class="control-group">
-                <label>⚙️ Paramètres :</label>
+                <label>⚙️ Vitesse Max :</label>
                 <input type="range" id="speed" min="1" max="8" value="4" step="0.5">
-                <label class="label-small">Vitesse Max</label>
             </div>
 
             <div class="button-group">
                 <button class="btn-help" id="help-btn">❓ Aide</button>
-                <button class="btn-reset" id="reset-btn">Réinitialiser</button>
+                <button class="btn-reset" id="reset-btn">Reset</button>
             </div>
         </div>
 
@@ -60,15 +59,15 @@
         <div class="modal-content">
             <span class="close-btn" id="close-help">&times;</span>
             <h2>Guide de l'Écosystème 🧬</h2>
-            <p class="subtitle">Maîtrisez votre monde numérique en quelques clics.</p>
+            <p class="subtitle">Une simulation de vie artificielle interactive.</p>
             
             <div class="help-sections">
                 <div class="help-card">
                     <div class="card-icon">🖱️</div>
                     <div class="card-text">
                         <h3>Interagir</h3>
-                        <p><strong>Pomme :</strong> Cliquez pour nourrir (+10 pts).</p>
-                        <p><strong>Mur :</strong> Maintenez pour dessiner (+5 pts si détruit).</p>
+                        <p><strong>Pomme :</strong> Nourrissez les Boids (+10 pts).</p>
+                        <p><strong>Mur :</strong> Dessinez pour les bloquer (+5 pts).</p>
                     </div>
                 </div>
 
@@ -76,23 +75,22 @@
                     <div class="card-icon">⚠️</div>
                     <div class="card-text">
                         <h3>Danger</h3>
-                        <p><strong>Prédateurs (Rouges) :</strong> Ils chassent vos Boids. Protégez-les ou vous perdrez 20 pts !</p>
+                        <p><strong>Prédateurs (Rouges) :</strong> Ils chassent vos Boids. Protégez-les (-20 pts si mangés).</p>
                     </div>
                 </div>
 
                 <div class="help-card event">
                     <div class="card-icon">🌪️</div>
                     <div class="card-text">
-                        <h3>Événements</h3>
-                        <p><strong>Nuit :</strong> Vision réduite. <strong>Tempête :</strong> Force d'aspiration centrale.</p>
+                        <h3>Météo</h3>
+                        <p><strong>Nuit :</strong> Vision réduite. <strong>Tempête :</strong> Vortex central activé.</p>
                     </div>
                 </div>
             </div>
-
-            <button class="btn-start" id="start-game">DÉMARRER LA SIMULATION</button>
+            <button class="btn-start" id="start-game">DÉMARRER</button>
         </div>
     </div>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <script src="script.js"></script>
 </body>
 </html>
