@@ -26,7 +26,7 @@ Ce projet va au-delà d'une simple animation. Il s'agit d'un moteur de comportem
 - **Interaction Temps Réel :** Synchronisation entre les événements de souris (dessin dynamique) et la logique de détection de collision des entités.
 
 ## Installation
-1. Clonez le dépôt : `git clone https://github.com/votre-nom/boids-ecosystem.git`
+1. Clonez le dépôt : `git clone https://github.com/Tran-Ch/Digital-Ecosystem.git`
 2. Ouvrez `index.html` dans votre navigateur. Aucun serveur ou dépendance n'est requis.
 
 ---
